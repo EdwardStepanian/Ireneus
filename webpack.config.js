@@ -11,14 +11,17 @@ module.exports = {
   },
 
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      include: path.join(__dirname, '/client/src'),
-      loader: 'babel',
-      query: {
-        presets: ["react", "es2015"]
-      }
-    }],
+     rules: [
+      {
+        test: /\.jsx?$/,
+        include: path.join(__dirname, '/client/src'),
+        exclude: /node_modules/,
+        use: [
+          "babel-loader",
+          "eslint-loader",
+        ],
+      },
+    ],
   },
   watch: true
 };
