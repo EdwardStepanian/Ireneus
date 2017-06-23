@@ -19,7 +19,7 @@ const Base = ({
 );
 
 Base.propTypes = {
-    children : PropTypes.object.isRequired
+    children : React.PropTypes.object.isRequired
 
 };
 

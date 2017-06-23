@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUpForm from '../components/SignUpForm';
+import SignUpForm from '../components/SignUpForm.jsx';
 
 class SignUpPage extends React.Component{
     constructor(props){
@@ -50,4 +50,4 @@ class SignUpPage extends React.Component{
     }
 }
 
-export default SignUpForm;
+export default SignUpPage;

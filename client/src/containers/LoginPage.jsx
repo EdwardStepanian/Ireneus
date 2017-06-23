@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../components/LoginForm.jsx';
 
 class LoginPage extends React.Component{
     constructor(props){
@@ -27,17 +27,19 @@ class LoginPage extends React.Component{
         user[field] = event.target.value;
 
         this.setState({
-            render(){
-                return(
-                    <LoginForm
-                        onSubmit={this.processForm}
-                        onChange={this.changeUser}
-                        errors={this.state.errors}
-                        user={this.state.user}
-                    />
-                )
-            }
+            user
         })
+    }
+
+    render(){
+        return(
+            <LoginForm
+                onSubmit={this.processForm}
+                onChange={this.changeUser}
+                errors={this.state.errors}
+                user={this.state.user}
+            />
+        )
     }
 
 }
