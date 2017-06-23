@@ -10,18 +10,28 @@ module.exports = {
     filename: 'app.js',
   },
 
-  module: {
-     rules: [
+   module: {
+
+    // apply loaders to files that meet given conditions
+    loaders: [{
+      test: /\.jsx?$/,
+      include: path.join(__dirname, '/client/src'),
+      loader: 'babel',
+      query: {
+        presets: ["react", "es2015"]
+      }
+    }],
+    rules: [
       {
-        test: /\.jsx?$/,
-        include: path.join(__dirname, '/client/src'),
+        test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          "babel-loader",
-          "eslint-loader",
-        ],
+        loader: "eslint-loader",
+        options: {
+          // eslint options (if necessary)
+        }
       },
     ],
   },
+  
   watch: true
 };
