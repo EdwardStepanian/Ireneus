@@ -40,12 +40,19 @@
 
 
 const express = require('express');
+const bodyParser = require('body-parser');
 const port = 3002;
 const domainName = 'Ireneus';
 const app = express();
 
 app.use(express.static('./server/static'));
 app.use(express.static('./client/dist'));
+// tell the app to parse HTTP body messages
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// routes
+const authRoutes = require('./server/routes/auth');
+app.use('/auth', authRoutes);
 
 // Start the server
 app.listen(port,domainName, () => {
