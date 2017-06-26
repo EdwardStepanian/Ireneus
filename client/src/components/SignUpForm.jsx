@@ -49,7 +49,7 @@ const SignUpForm = ({
                 />
             </div>
             <div className="button-line">
-                <RaisedButton type="submit" lavel="Create New Account" primary/>
+                <RaisedButton type="submit" label="Create New Account" primary/>
                 <CardText>Already have an account <Link to = {'./login'} >Log in</Link></CardText>
             </div>
         </form>

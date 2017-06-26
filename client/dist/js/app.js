@@ -40612,7 +40612,7 @@
 
 	        var _this = _possibleConstructorReturn(this, (LoginPage.__proto__ || Object.getPrototypeOf(LoginPage)).call(this, props));
 
-	        _this.setState = {
+	        _this.state = {
 	            errors: {},
 	            user: {
 	                email: '',
@@ -42800,8 +42800,8 @@
 	            }
 	        };
 
-	        _this.processForm = _this.ProcessForm.bind(_this);
-	        _this.changeUser = _this.ChangeUser.bind(_this);
+	        _this.processForm = _this.processForm.bind(_this);
+	        _this.changeUser = _this.changeUser.bind(_this);
 
 	        return _this;
 	    }
@@ -42933,7 +42933,7 @@
 	            _react2.default.createElement(
 	                'div',
 	                { className: 'button-line' },
-	                _react2.default.createElement(_RaisedButton2.default, { type: 'submit', lavel: 'Create New Account', primary: true }),
+	                _react2.default.createElement(_RaisedButton2.default, { type: 'submit', label: 'Create New Account', primary: true }),
 	                _react2.default.createElement(
 	                    _Card.CardText,
 	                    null,

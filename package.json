@@ -4,7 +4,7 @@
   "description": "Ireneus: Blog",
   "main": "index.js",
   "scripts": {
-    "start": "webpack && nodemon --use-strict index.js",
+    "start": "nodemon --use-strict index.js",
     "bundle": "webpack"
   },
   "repository": {
