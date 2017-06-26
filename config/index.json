@@ -1,0 +1,4 @@
+{
+  "dbUri": "mongodb://ireneus",
+  "jwtSecret": "RehanyanSistersTheBest"
+}
