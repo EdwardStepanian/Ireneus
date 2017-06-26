@@ -10,7 +10,7 @@ const Base = ({
                 <IndexLink to="/">Ireneus </IndexLink>
             </div>
             <div className="top-bar-right">
-                <Link to="/login"> Log In </Link>
+                <Link to="/login">Log In </Link>
                 <Link to="/signup">Sign Up </Link>
             </div>
         </div>

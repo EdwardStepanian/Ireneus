@@ -1,10 +1,12 @@
 body {
   margin: 0;
   font-size: 16px;
+  background: #2A363B;
 }
 
 a {
   color: #00bcd4;
+  font-family: 'Roboto', serif !important;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.4s;
@@ -64,4 +66,8 @@ a:hover {
 .success-message {
   padding: 0 16px;
   color: green;
+}
+.welcomeBlock > span{
+  font: 25px 'Roboto', serif !important;
+  color: #CF4647 !important;
 }

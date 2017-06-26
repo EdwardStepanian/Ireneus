@@ -4,7 +4,7 @@ import {Card, CardTitle} from 'material-ui/Card';
 const HomePage = ()=> (
 
 	<Card className = "container">
-		<CardTitle title = "Ireneus" subtitle="Blog" />
+		<CardTitle className = 'welcomeBlock' title = "Ireneus" subtitle="Blog by euthanasiEd" />
 	</Card>
 
 );
