@@ -17,7 +17,9 @@ const UserScheme = new mongoose.Schema({
  * @returns {object} callback
  */
 UserSchema.methods.comparePassword = function comparePassword(password, callback) {
-    bcrypt.compare(password, this.password, callback);
+    bcrypt.compare(password, this.password, callback)
+
+    console.log(this.password)
 };
 
 //Pre save method
