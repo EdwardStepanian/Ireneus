@@ -3,6 +3,8 @@ const passportLocal = require("passport-local");
 const userModel = User.model("User")
 const passportStrategy = passportLocal.Strategy
 
+//In Passport Strategy instead of a username try to use an email address
+
 module.exports = new passportStrategy({
     usernameField: "email",
     passwordField: "password",
