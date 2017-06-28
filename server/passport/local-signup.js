@@ -1,6 +1,6 @@
-const User = require("mongoose")
+const mongoose = require("mongoose")
 const passportLocal = require("passport-local");
-const userModel = User.model("User")
+const userModel = mongoose.model("User")
 const passportStrategy = passportLocal.Strategy
 
 //In Passport Strategy instead of a username try to use an email address
@@ -17,7 +17,7 @@ module.exports = new passportStrategy({
         name: req.body.name.trim()
     };
 
-    const newUser = new User(userData);
+    const newUser = new userModel(userData);
     newUser.save((err) => {
         if (err) { return done(err); }
 
