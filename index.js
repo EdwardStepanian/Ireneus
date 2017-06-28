@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const dbconfig = require("./server/models");
+const config = require('./config')
 const port = 3002;
 const domainName = "Ireneus";
 const app = express();

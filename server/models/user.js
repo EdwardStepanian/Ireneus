@@ -16,14 +16,14 @@ const UserScheme = new mongoose.Schema({
  * @param {string} password
  * @returns {object} callback
  */
-UserSchema.methods.comparePassword = function comparePassword(password, callback) {
+UserScheme.methods.comparePassword = function comparePassword(password, callback) {
     bcrypt.compare(password, this.password, callback)
 
     console.log(this.password)
 };
 
 //Pre save method
-UserSchema.pre('save', function saveHook(next) {
+UserScheme.pre('save', function saveHook(next) {
     const user = this;
 
     // proceed further only if the password is modified or the user is new
@@ -45,4 +45,4 @@ UserSchema.pre('save', function saveHook(next) {
 });
 
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserScheme);
