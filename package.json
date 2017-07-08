@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --use-strict index.js",
     "bundle": "webpack",
-    "lint": "eslint webpack.config.js  server/"
+    "lint": "eslint webpack.config.js  server/routes"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken")
 const mongoose = require("mongoose")
-const userModel = mongoose.model("User")
+const user = mongoose.model("User")
 const config = require("../../config")
 
 //Authentication checker middleware function
@@ -20,7 +20,7 @@ module.exports = (req, res, next) => {
         const userId = decoded.sub
 
         // check if a user exists
-        return User.findById(userId, (userErr, user) => {
+        return user.findById(userId, (userErr, user) => {
             if (userErr || !user) {
                 return res.status(401).end()
             }

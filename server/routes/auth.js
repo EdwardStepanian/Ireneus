@@ -1,9 +1,14 @@
 const express = require("express")
 const validator = require("validator")
-const router = new express.Router()
 const passport  = require("passport")
-//Validate SignUp Form
+const router = new express.Router()
 
+/**
+ * Validate SignUp Form
+ * @param {object} payload - the HTTP body message
+ * @returns {object} The result of validation.
+ *
+ **/
 function validateSignupForm(payload) {
     let errors = {},
         isFormValid = true,
@@ -29,7 +34,43 @@ function validateSignupForm(payload) {
     }
 }
 
-outer.post("/signup", (req, res, next) => {
+/**
+ *
+ * Validate the login form
+ * @param {object} payload - the HTTP body message
+ * @returns {object} The result of validation.
+ *
+ */
+
+function validateLoginForm(payload) {
+    const errors = {}
+    let isFormValid = true
+    let message = ''
+
+    console.log(${payload `payload`})
+    if(!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0){
+        isFormValid = false
+        errors.email = 'Please provide your email address'
+    }
+
+    if(!payload || typeof payload.password !== 'string' || payload.password.trim().length === 0){
+        isFormValid = false
+        errors.password = 'Please provide your password'
+    }
+
+    if(!isFormValid){
+        message = 'Check the form'
+    }
+
+    return{
+        success: isFormValid,
+        message,
+        errors
+    }
+}
+
+router.post("/signup", (req, res, next) => {
+    console.log('req.body' + req.body);
     const validationResult = validateSignupForm(req.body)
     if (!validationResult.success) {
         return res.status(400).json({
@@ -38,8 +79,6 @@ outer.post("/signup", (req, res, next) => {
             errors: validationResult.errors
         })
     }
-
-
     return passport.authenticate("local-signup", (err) => {
         if (err) {
             if (err.name === "MongoError" && err.code === 11000) {
