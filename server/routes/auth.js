@@ -42,7 +42,7 @@ function validateSignupForm(payload) {
  *
  */
 
-function validateLoginForm(payload) {
+function validateLoginForm(payload){
     const errors = {}
     let isFormValid = true
     let message = ''
