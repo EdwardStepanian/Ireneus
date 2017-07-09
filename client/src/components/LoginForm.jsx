@@ -6,17 +6,18 @@ import TextField from 'material-ui/TextField';
 
 
 const LoginForm = ({
-                       onSubmit,
-                       onChange,
-                       errors,
-                       user
-                   }) => (
+    onSubmit,
+    onChange,
+    errors,
+    user,
+    successMessage
+}) => (
     <Card className="container">
         <form action="/" onSubmit={onSubmit}>
             <h2 className="card-heading">Login</h2>
 
             {errors.summary && <p className="error-message">{errors.summary}</p>}
-
+            {successMessage}
             <div className="field-line">
                 <TextField
                     floatingLabelText="Email"

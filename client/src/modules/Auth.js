@@ -6,16 +6,16 @@ class Auth{
         sessionStorage.setItem('sessionToken', token)
     }
     //Check if a user is authenticated
-    isUserAuthenticated(){
+    static isUserAuthenticated(){
         return localStorage.getItem('token') !== null;
     }
     //Deauthenticate a user
-    deauthenticateUser(){
+    static deauthenticateUser(){
         localStorage.removeItem('token');
     }
 
     //Get a token
-    getToken(){
+    static getToken(){
         localStorage.getItem('token');
     }
 }
