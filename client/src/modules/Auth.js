@@ -1,7 +1,7 @@
 class Auth{
 
     //Save authenticated user token
-    authenticateUser(token){
+    static authenticateUser(token){
         localStorage.setItem('token', token);
         sessionStorage.setItem('sessionToken', token)
     }
