@@ -47,7 +47,7 @@ function validateLoginForm(payload){
     let isFormValid = true
     let message = ''
 
-    console.log(${payload `payload`})
+    console.log(`${payload} payload`)
     if(!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0){
         isFormValid = false
         errors.email = 'Please provide your email address'
