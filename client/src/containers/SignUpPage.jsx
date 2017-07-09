@@ -38,11 +38,13 @@ class SignUpPage extends React.Component{
         const name = encodeURIComponent(this.state.user.name);
         const email = encodeURIComponent(this.state.user.email);
         const password = encodeURIComponent(this.state.user.password);
-        const formData = `name=${name}&email=${email}&password=${password}`;
+        const formData = ` name = ${name}&email = ${email}&password = ${password} `;
 
+
+        //Ajax Request
         const xhr = new XMLHttpRequest();
         xhr.open('post', '/auth/signup');
-        xhr.userRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.responseType = 'json';
         xhr.addEndEventListener('load', () => {
                 if( xhr.status === 200 ) {
@@ -53,6 +55,10 @@ class SignUpPage extends React.Component{
                         errors : {}
                     });
                     console.log('The form is valid');
+                    localStorage.setItem('successMessage', xhr.response.message);
+
+                    //Make redirect
+                    this.context.router.replace('/login');
                 }else {
                     // failure
                     const errors = xhr.response.errors ? xhr.response.errors : {};
