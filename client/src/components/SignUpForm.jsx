@@ -50,7 +50,8 @@ const SignUpForm = ({
             </div>
             <div className="button-line">
                 <RaisedButton type="submit" label="Create New Account" primary/>
-                <CardText>Already have an account <Link to = {'./login'} >Log in</Link></CardText>
+                <CardText>Already have an account <Link to = '/login' >Log in</Link></CardText>
+                <CardText>You can also login via you facebook account <Link to = '/login' > FaceBook Login</Link> </CardText>
             </div>
         </form>
     </Card>

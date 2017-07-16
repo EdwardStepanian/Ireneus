@@ -11,7 +11,7 @@ const Base = ({
             <div className="top-bar-left">
                 <IndexLink to="/">Ireneus </IndexLink>
             </div>
-            {Auth.isUnauthenticated() ? (
+            {Auth.isUserAuthenticated() ? (
                 <div className="top-bar-right">
                     <Link to="/logout" > Log out </Link>
                 </div>

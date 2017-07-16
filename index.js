@@ -32,8 +32,14 @@ passport.use("local-login", localLoginStrategy);
 const authCheckMiddleware = require("./server/middleware/auth-check");
 app.use("/api", authCheckMiddleware);
 
-
 // Start the server
 app.listen(port,domainName, () => {
   console.log(`Server is running on http://${domainName + ":" + port}`);
 });
+
+//Introduce testes with Chai and Mocha
+
+app.use((req, res, next) => {
+  res.locals.showTests = app.get('env') !== 'production' && req.query.test === '1'
+  next()
+})

@@ -11,7 +11,7 @@ const routes = {
     childRoutes: [
         {
             path: '/',
-            component: (location, callback) => {
+            getComponent: (location, callback) => {
                 if(Auth.isUserAuthenticated()){
                     callback(null, DashboardPage)
                 }else{
@@ -19,7 +19,6 @@ const routes = {
                 }
             }
         },
-
         {
             path: '/login',
             component: LoginPage

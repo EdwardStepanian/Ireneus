@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import SignUpForm from '../components/SignUpForm.jsx';
 
 class SignUpPage extends React.Component{
-    constructor(props){
-        super(props);
+    constructor(props, context){
+        super(props, context);
 
         this.state = {
             errors : {},
@@ -38,7 +38,8 @@ class SignUpPage extends React.Component{
         const name = encodeURIComponent(this.state.user.name);
         const email = encodeURIComponent(this.state.user.email);
         const password = encodeURIComponent(this.state.user.password);
-        const formData = ` name = ${name}&email = ${email}&password = ${password} `;
+        console.log(email);
+        const formData = `name=${name}&email=${email}&password=${password} `;
 
 
         //Ajax Request
@@ -46,7 +47,7 @@ class SignUpPage extends React.Component{
         xhr.open('post', '/auth/signup');
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.responseType = 'json';
-        xhr.addEndEventListener('load', () => {
+        xhr.addEventListener('load', () => {
                 if( xhr.status === 200 ) {
                     //success
 
@@ -58,6 +59,7 @@ class SignUpPage extends React.Component{
                     localStorage.setItem('successMessage', xhr.response.message);
 
                     //Make redirect
+                    console.log(this.context)
                     this.context.router.replace('/login');
                 }else {
                     // failure
@@ -69,10 +71,8 @@ class SignUpPage extends React.Component{
                     });
                 }
             });
-
+        console.log(formData);
         xhr.send(formData);
-
-
         console.log('name:', this.state.user.name);
         console.log('email:', this.state.user.email);
         console.log('password:', this.state.user.password);
@@ -88,5 +88,9 @@ class SignUpPage extends React.Component{
         )
     }
 }
+
+SignUpPage.contextTypes = {
+    router: PropTypes.object.isRequired
+};
 
 export default SignUpPage;
