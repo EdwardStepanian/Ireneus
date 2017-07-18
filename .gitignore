@@ -1,0 +1,4 @@
+./idea
+*.log
+*.loc
+node_modules
