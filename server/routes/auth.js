@@ -43,11 +43,10 @@ function validateSignupForm(payload) {
  */
 
 function validateLoginForm(payload){
-    const errors = {}
+    let errors = {}
     let isFormValid = true
     let message = ''
 
-    console.log(`${payload} payload`)
     if(!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0){
         isFormValid = false
         errors.email = 'Please provide your email address'
@@ -70,7 +69,6 @@ function validateLoginForm(payload){
 }
 
 router.post("/signup", (req, res, next) => {
-    console.log('req.body' + req.body);
     const validationResult = validateSignupForm(req.body)
     if (!validationResult.success) {
         return res.status(400).json({
@@ -105,8 +103,9 @@ router.post("/signup", (req, res, next) => {
         })
     })(req, res, next)
 })
-
+console.log('asd')
 router.post("/login", (req, res, next) => {
+    console.log(req.body);
     const validationResult = validateLoginForm(req.body)
     if (!validationResult.success) {
         return res.status(400).json({

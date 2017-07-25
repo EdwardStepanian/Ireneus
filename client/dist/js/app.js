@@ -75,7 +75,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var root = document.getElementById('root');
-	// remove tap delay
+
 	(0, _reactTapEventPlugin2.default)();
 
 	_reactDom2.default.render(_react2.default.createElement(
@@ -41174,7 +41174,6 @@
 	            var email = encodeURIComponent(this.state.user.email);
 	            var password = encodeURIComponent(this.state.user.password);
 	            var formData = 'email=' + email + '&password=' + password;
-
 	            // create an AJAX request
 	            var xhr = new XMLHttpRequest();
 	            xhr.open('post', '/auth/login');
@@ -41185,9 +41184,6 @@
 	                    // success
 
 	                    // change the component-container state
-	                    _this2.setState({
-	                        errors: {}
-	                    });
 
 	                    // save the token
 	                    _Auth2.default.authenticateUser(xhr.response.token);
@@ -41200,10 +41196,6 @@
 	                    // change the component state
 	                    var errors = xhr.response.errors ? xhr.response.errors : {};
 	                    errors.summary = xhr.response.message;
-
-	                    _this2.setState({
-	                        errors: errors
-	                    });
 	                }
 	            });
 	            xhr.send(formData);

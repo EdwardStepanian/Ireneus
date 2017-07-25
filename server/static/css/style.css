@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-size: 16px;
   background: #2A363B;
+  font-family: 'Roboto', serif;
 }
 
 a {
@@ -67,7 +68,9 @@ a:hover {
   padding: 0 16px;
   color: green;
 }
-.welcomeBlock > span{
-  font: 25px 'Roboto', serif !important;
-  color: #CF4647 !important;
+
+@media screen and (max-width: 700px) {
+  .container{
+    width: auto !important;
+  }
 }

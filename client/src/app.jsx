@@ -7,7 +7,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import routes from './routes.js';
 
 const root = document.getElementById('root');
-// remove tap delay
+
 injectTapEventPlugin();
 
 
