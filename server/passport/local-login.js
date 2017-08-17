@@ -18,7 +18,7 @@ module.exports = new passportStrategy({
 
     //find users by email
     //findOne mongoose query
-
+    console.log(userModel)
     return userModel.findOne({
         "email": userData.email
     }, (err, user) => {
@@ -28,7 +28,7 @@ module.exports = new passportStrategy({
             error.name = "CredentialError"
             return done(error)
         }
-
+        console.log(userData.password);
         // check if a hashed user's password is equal to a value saved in the database
         return userModel.comparePassword(userData.password, (passErr, isMatch) => {
             if(err) return done(err)

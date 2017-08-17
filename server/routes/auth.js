@@ -103,7 +103,7 @@ router.post("/signup", (req, res, next) => {
         })
     })(req, res, next)
 })
-console.log('asd')
+
 router.post("/login", (req, res, next) => {
     console.log(req.body);
     const validationResult = validateLoginForm(req.body)
@@ -124,7 +124,7 @@ router.post("/login", (req, res, next) => {
                     message: err.message
                 })
             }
-
+            console.log(err)
             return res.status(400).json({
                 success: false,
                 message: "Could not process the form."

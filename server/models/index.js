@@ -1,22 +1,17 @@
-const mongoose = require("mongoose")
 
+const mongoose = require('mongoose');
 
 module.exports.connect = (uri) => {
-    mongoose.connect(uri, function (err) {
-        if(err){
-            console.log(err)
-        }
-    })
+    mongoose.connect(uri);
+    // plug in the promise library:
+    mongoose.Promise = global.Promise;
 
 
-    mongoose.Primise = global.Promise
-    console.log(global.Promise)
-
-    mongoose.connection.on("error", (err) => {
-        console.log(`Mongoose connection error: ${err}`)
+    mongoose.connection.on('error', (err) => {
+        console.error(`Mongoose connection error: ${err}`);
         process.exit(1);
-    })
+    });
 
-    //load models
-    require('./user')
+    // load models
+    require('./user');
 }

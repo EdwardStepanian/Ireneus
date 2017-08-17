@@ -1,8 +1,8 @@
-import React from 'react';
+import React , { Component }from 'react';
 import Auth from '../modules/Auth';
 import Dashboard from '../components/Dashboard.jsx';
 
-class DashboardPage extends React.Component{
+class DashboardPage extends Component{
     constructor(props){
         super(props)
         this.state = {
